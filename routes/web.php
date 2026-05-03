@@ -6,11 +6,7 @@ use App\Http\Controllers\AuthController;
 
 
 
-Route::get('/', function () {
-    return view('auth.login');
-})->name('login');
-
-
+Route::get('/', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.store');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store'])->name('register.store');
